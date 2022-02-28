@@ -1,0 +1,19 @@
+{
+  "name": "ch.unibas.vr-open-text-input",
+  "version": "0.0.1",
+  "displayName": "VR Open Text Input",
+  "description": "This package implements several text input methods for generic VR controllers.",
+  "documentationUrl": "https://github.com/N4karin/vr-open-text-input",
+  "unity": "2021.2",
+  "unityRelease": "13f1",
+  "dependencies": {
+  },
+  "keywords": [
+    "VR",
+    "Text Input"
+  ],
+  "author": {
+    "name": "Nakarin Srijumrat",
+    "email": "nakarin.srijumrat@unibas.ch"
+  }
+}
