@@ -130,12 +130,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &128051166134565241
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,12 +260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &170275039872781820
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,12 +562,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &219725594182192731
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,12 +864,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &426988128800399796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,12 +994,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &515704104593570480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,12 +1124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &543025161522110819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,12 +1254,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &655851925476339139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,12 +1384,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &678014836942208221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2422,12 +2374,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1431138211295676254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2730,12 +2676,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1463425394216714614
 GameObject:
   m_ObjectHideFlags: 0
@@ -3210,12 +3150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1828535331470457539
 GameObject:
   m_ObjectHideFlags: 0
@@ -4206,12 +4140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2541799752039558471
 GameObject:
   m_ObjectHideFlags: 0
@@ -4440,6 +4368,7 @@ GameObject:
   - component: {fileID: 2541799752541257892}
   - component: {fileID: 7001009623174850211}
   - component: {fileID: 6538352378104723268}
+  - component: {fileID: 7850150144684160215}
   m_Layer: 0
   m_Name: Keyboard
   m_TagString: Untagged
@@ -4534,6 +4463,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &7850150144684160215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2541799752541257899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dad5288e72f0cb4886e7a25d83c3060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onKeyPress:
+    m_PersistentCalls:
+      m_Calls: []
+  onBackspace:
+    m_PersistentCalls:
+      m_Calls: []
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  pressedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2742921397226351170
 GameObject:
   m_ObjectHideFlags: 0
@@ -4664,12 +4613,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2944842685162097800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4972,12 +4915,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3247361729908533326
 GameObject:
   m_ObjectHideFlags: 0
@@ -5108,12 +5045,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3346175138727684236
 GameObject:
   m_ObjectHideFlags: 0
@@ -5244,12 +5175,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3346715815266941234
 GameObject:
   m_ObjectHideFlags: 0
@@ -5552,12 +5477,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3545715486865053345
 GameObject:
   m_ObjectHideFlags: 0
@@ -5860,12 +5779,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3601462391846841962
 GameObject:
   m_ObjectHideFlags: 0
@@ -5996,12 +5909,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &3719625739176935831
 GameObject:
   m_ObjectHideFlags: 0
@@ -6449,12 +6356,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4057564157897781040
 GameObject:
   m_ObjectHideFlags: 0
@@ -6757,12 +6658,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4344020528517820918
 GameObject:
   m_ObjectHideFlags: 0
@@ -6893,12 +6788,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4468221017931612044
 GameObject:
   m_ObjectHideFlags: 0
@@ -7029,12 +6918,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4677654439794983335
 GameObject:
   m_ObjectHideFlags: 0
@@ -7337,12 +7220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &4774695692401006960
 GameObject:
   m_ObjectHideFlags: 0
@@ -7473,12 +7350,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5401363258178256192
 GameObject:
   m_ObjectHideFlags: 0
@@ -7781,12 +7652,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5580122908145868853
 GameObject:
   m_ObjectHideFlags: 0
@@ -7917,12 +7782,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5605663439057315738
 GameObject:
   m_ObjectHideFlags: 0
@@ -8225,12 +8084,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5860620573150557988
 GameObject:
   m_ObjectHideFlags: 0
@@ -8533,12 +8386,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6135088732982119979
 GameObject:
   m_ObjectHideFlags: 0
@@ -8841,12 +8688,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6450103270334104911
 GameObject:
   m_ObjectHideFlags: 0
@@ -9321,12 +9162,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6702829578674801849
 GameObject:
   m_ObjectHideFlags: 0
@@ -9629,12 +9464,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &6726866589012781261
 GameObject:
   m_ObjectHideFlags: 0
@@ -10109,12 +9938,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7260454476486007384
 GameObject:
   m_ObjectHideFlags: 0
@@ -10933,12 +10756,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7862983273047576049
 GameObject:
   m_ObjectHideFlags: 0
@@ -11069,12 +10886,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &8147226890300661097
 GameObject:
   m_ObjectHideFlags: 0
@@ -11721,12 +11532,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &8436800481859682291
 GameObject:
   m_ObjectHideFlags: 0
@@ -12112,12 +11917,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &8984264114138375740
 GameObject:
   m_ObjectHideFlags: 0
@@ -12248,12 +12047,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &9088240930724678708
 GameObject:
   m_ObjectHideFlags: 0
@@ -12556,12 +12349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &9215950402850044850
 GameObject:
   m_ObjectHideFlags: 0
@@ -12692,9 +12479,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHit: 0
   keyReset: 0
-  onKeyPress:
-    m_PersistentCalls:
-      m_Calls: []
-  onBackspace:
-    m_PersistentCalls:
-      m_Calls: []
