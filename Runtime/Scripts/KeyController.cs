@@ -23,11 +23,13 @@ public class KeyController : MonoBehaviour
 
         private TextMeshPro _tmp;
         private Renderer _renderer;
+        private bool keyReset;
 
         private void Start()
         {
             _tmp = GetComponentInChildren<TextMeshPro>();
             _renderer = GetComponent<Renderer>();
+            keyReset = true;
         }
 
         public void KeyPressed(string text)
@@ -38,5 +40,15 @@ public class KeyController : MonoBehaviour
         public void BackspacePressed()
         {
             onBackspace.Invoke();
+        }
+
+        public bool getKeyReset()
+        {
+            return keyReset;
+        }
+
+        public void setKeyReset(bool isNoKeyPressed)
+        {
+            keyReset = isNoKeyPressed;
         }
 }
