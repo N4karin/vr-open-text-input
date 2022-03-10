@@ -6,15 +6,14 @@ using TMPro;
 
 public class KeyFeedback : MonoBehaviour
 {
+    private string label;
+    private bool isPressed;
     private Color defaultColor;
     private Color pressedColor;
-    
     private KeyAudioFeedback soundHandler;
-    private string label;
+    private KeyController parentKeyController;
     private BoxCollider boxCol;
     private Vector3 originalBoxColSize;
-    private KeyController parentKeyController;
-    private bool isPressed;
     private Renderer _renderer;
     
     void Start()
@@ -49,6 +48,11 @@ public class KeyFeedback : MonoBehaviour
             { 
                 parentKeyController.BackspacePressed();
             }
+            else if (label == "Shift")
+            {
+                parentKeyController.setShiftPressed(true);
+                parentKeyController.setKeyReset(true);
+            }
             else
             {
                 parentKeyController.KeyPressed(label);
@@ -60,6 +64,11 @@ public class KeyFeedback : MonoBehaviour
     {
         if (collision.gameObject.tag == "KeyboardTrigger" && isPressed)
         {
+            if (label == "Shift")
+            {
+                parentKeyController.setShiftPressed(false);
+            }
+
             // Allow other keys to be pressed again
             parentKeyController.setKeyReset(true);
             isPressed = false;

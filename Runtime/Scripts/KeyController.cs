@@ -1,7 +1,5 @@
 using System;
-using TMPro;
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.Events;
 
 public class KeyController : MonoBehaviour
@@ -16,12 +14,12 @@ public class KeyController : MonoBehaviour
         {
         }
         
-        public TextInputEvent onKeyPress;
-        public TextBackspaceEvent onBackspace;
-        private TextMeshPro _tmp;
-        private bool keyReset;
         public Color defaultColor;
         public Color pressedColor;
+        public TextInputEvent onKeyPress;
+        public TextBackspaceEvent onBackspace;
+		private bool shiftPressed;
+        private bool keyReset;
 
         private void Start()
         {
@@ -30,6 +28,10 @@ public class KeyController : MonoBehaviour
 
         public void KeyPressed(string text)
         {
+			if (!shiftPressed)
+			{
+				text = text.ToLower();
+			}
             onKeyPress.Invoke(text);
         }
 
@@ -56,5 +58,15 @@ public class KeyController : MonoBehaviour
         public Color getDefaultColor()
         {
             return defaultColor;
+        }
+
+		public bool getShiftPressed()
+        {
+            return shiftPressed;
+        }
+
+        public void setShiftPressed(bool isShiftPressed)
+        {
+            shiftPressed = isShiftPressed;
         }
 }
