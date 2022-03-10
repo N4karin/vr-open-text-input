@@ -18,17 +18,13 @@ public class KeyController : MonoBehaviour
         
         public TextInputEvent onKeyPress;
         public TextBackspaceEvent onBackspace;
+        private TextMeshPro _tmp;
+        private bool keyReset;
         public Color defaultColor;
         public Color pressedColor;
 
-        private TextMeshPro _tmp;
-        private Renderer _renderer;
-        private bool keyReset;
-
         private void Start()
         {
-            _tmp = GetComponentInChildren<TextMeshPro>();
-            _renderer = GetComponent<Renderer>();
             keyReset = true;
         }
 
@@ -50,5 +46,15 @@ public class KeyController : MonoBehaviour
         public void setKeyReset(bool isNoKeyPressed)
         {
             keyReset = isNoKeyPressed;
+        }
+        
+        public Color getPressedColor()
+        {
+            return pressedColor;
+        }
+        
+        public Color getDefaultColor()
+        {
+            return defaultColor;
         }
 }

@@ -6,13 +6,17 @@ using TMPro;
 
 public class KeyFeedback : MonoBehaviour
 {
+    private Color defaultColor;
+    private Color pressedColor;
+    
     private KeyAudioFeedback soundHandler;
     private string label;
     private BoxCollider boxCol;
     private Vector3 originalBoxColSize;
     private KeyController parentKeyController;
     private bool isPressed;
-
+    private Renderer _renderer;
+    
     void Start()
     {
         soundHandler = GameObject.FindGameObjectWithTag("SoundHandler").GetComponent<KeyAudioFeedback>();
@@ -20,6 +24,9 @@ public class KeyFeedback : MonoBehaviour
         boxCol = gameObject.GetComponent<BoxCollider>();
         originalBoxColSize = boxCol.size;
         parentKeyController = transform.parent.gameObject.GetComponent<KeyController>();
+        _renderer = GetComponent<Renderer>();
+        defaultColor = parentKeyController.getDefaultColor();
+        pressedColor = parentKeyController.getPressedColor();
     }
 
     void OnTriggerEnter(Collider collision)
@@ -29,7 +36,9 @@ public class KeyFeedback : MonoBehaviour
             // Block other keys from being pressed
             parentKeyController.setKeyReset(false);
             isPressed = true;
-            
+            // Change color 
+            _renderer.material.color = pressedColor;
+            // Play sound
             soundHandler.PlayKeyClick();
             // Scale box collider up to prevent multiple inputs
             boxCol.size += new Vector3(20, 100, 20);
@@ -54,6 +63,7 @@ public class KeyFeedback : MonoBehaviour
             // Allow other keys to be pressed again
             parentKeyController.setKeyReset(true);
             isPressed = false;
+            _renderer.material.color = defaultColor;
             
             // Scale box collider to match actual mesh again
             boxCol = gameObject.GetComponent<BoxCollider>();
