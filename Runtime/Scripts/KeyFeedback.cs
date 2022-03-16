@@ -30,55 +30,94 @@ public class KeyFeedback : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "KeyboardTrigger" && parentKeyController.getKeyReset())
+        if (collision.gameObject.CompareTag("KeyboardTrigger") && parentKeyController.getKeyReset())
         {
             // Block other keys from being pressed
             parentKeyController.setKeyReset(false);
             isPressed = true;
+            
+            // Transmit input event to script in parent object
+            switch (label)
+            {
+                case "BackSpace": 
+                    parentKeyController.BackspacePressed(); 
+                    break;
+                
+                case "Shift":
+                    if (parentKeyController.getShiftPressed())
+                    {
+                        return;
+                    }
+                    parentKeyController.setShiftPressed(true);
+                    parentKeyController.setKeyReset(true);
+                    break;
+                
+                case "Return":
+                    parentKeyController.ReturnPressed();
+                    break;
+                
+                case "→":
+                    parentKeyController.RightArrowPressed();
+                    break;
+                
+                case "←":
+                    parentKeyController.LeftArrowPressed();
+                    break;
+                
+                case "Tab":
+                    parentKeyController.TabulatorPressed();
+                    break;
+                
+                case "CapsLock":
+                    parentKeyController.ToggleCaps();
+                    break;
+                
+                default:
+                    parentKeyController.KeyPressed(label);
+                    break;
+            }
+            
             // Change color 
             _renderer.material.color = pressedColor;
+            
             // Play sound
             soundHandler.PlayKeyClick();
-            // Scale box collider up to prevent multiple inputs
-            boxCol.size += new Vector3(20, 100, 20);
-            // Displace on click
-            transform.position += transform.rotation * new Vector3(0, -0.005f, 0);
-            // Transmit input event to script in parent object
-            if (label == "BackSpace")
-            { 
-                parentKeyController.BackspacePressed();
-            }
-            else if (label == "Shift")
+            
+            // Scale box collider up to prevent multiple inputs if not Shift
+            if (label != "Shift")
             {
-                parentKeyController.setShiftPressed(true);
-                parentKeyController.setKeyReset(true);
+                boxCol.size += new Vector3(20, 100, 20);
             }
             else
             {
-                parentKeyController.KeyPressed(label);
+                boxCol.size += new Vector3(0, 100, 0);
             }
+
+            // Displace on click
+            transform.position += transform.rotation * new Vector3(0, -0.005f, 0);
         }
     }
     
     void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.tag == "KeyboardTrigger" && isPressed)
+        if (collision.gameObject.CompareTag("KeyboardTrigger") && isPressed)
         {
             if (label == "Shift")
             {
                 parentKeyController.setShiftPressed(false);
             }
 
+            // Scale box collider to match actual mesh again
+            boxCol = gameObject.GetComponent<BoxCollider>();
+            boxCol.size = originalBoxColSize;
+
             // Allow other keys to be pressed again
             parentKeyController.setKeyReset(true);
             isPressed = false;
             _renderer.material.color = defaultColor;
-            
-            // Scale box collider to match actual mesh again
-            boxCol = gameObject.GetComponent<BoxCollider>();
-            boxCol.size = originalBoxColSize;
+
             // Displace on release
-            transform.position += transform.rotation * new Vector3(0, 0.005f, 0) ;
+            transform.position += transform.rotation * new Vector3(0, 0.005f, 0);
         }
     }
 }

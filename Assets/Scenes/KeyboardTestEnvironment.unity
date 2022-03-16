@@ -1997,6 +1997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dad5288e72f0cb4886e7a25d83c3060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultColor: {r: 1, g: 1, b: 1, a: 0}
+  pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
   onKeyPress:
     m_PersistentCalls:
       m_Calls:
@@ -2029,8 +2031,70 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  defaultColor: {r: 1, g: 1, b: 1, a: 0}
-  pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+  onReturn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1742157866}
+        m_TargetAssemblyTypeName: VitrivrVR.Input.Text.SceneTextInputController,
+          Assembly-CSharp
+        m_MethodName: InputReturn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: KeyCode.Return
+          m_BoolArgument: 0
+        m_CallState: 2
+  onLeftArrow:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1742157866}
+        m_TargetAssemblyTypeName: VitrivrVR.Input.Text.SceneTextInputController,
+          Assembly-CSharp
+        m_MethodName: InputLeftArrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRightArrow:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1742157866}
+        m_TargetAssemblyTypeName: VitrivrVR.Input.Text.SceneTextInputController,
+          Assembly-CSharp
+        m_MethodName: InputRightArrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTabulator:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1742157866}
+        m_TargetAssemblyTypeName: VitrivrVR.Input.Text.SceneTextInputController,
+          Assembly-CSharp
+        m_MethodName: InputTabulator
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1541478907
 GameObject:
   m_ObjectHideFlags: 0
