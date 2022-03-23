@@ -13,11 +13,18 @@ public class DrumKeyController : MonoBehaviour
         public class TextBackspaceEvent : UnityEvent
         {
         }
+
+		[Serializable]
+        public class TextReturnEvent : UnityEvent
+        {
+        }
         
         public Color defaultColor;
         public Color pressedColor;
         public TextInputEvent onKeyPress;
         public TextBackspaceEvent onBackspace;
+		public TextReturnEvent onReturn;
+		private bool _shiftPressed;
         private bool _keyReset;
 
         private void Start()
@@ -27,12 +34,25 @@ public class DrumKeyController : MonoBehaviour
 
         public void KeyPressed(string text)
         {
-            onKeyPress.Invoke(text);
+            if (_shiftPressed)
+            {
+                text = text.ToUpper();
+            }
+            else
+            {
+                text = text.ToLower();
+            }
+        onKeyPress.Invoke(text);
         }
 
         public void BackspacePressed()
         {
             onBackspace.Invoke();
+        }
+
+		public void ReturnPressed()
+        {
+            onReturn.Invoke();
         }
 
         public bool getKeyReset()
@@ -53,5 +73,15 @@ public class DrumKeyController : MonoBehaviour
         public Color getDefaultColor()
         {
             return defaultColor;
+        }
+
+		public bool getShiftPressed()
+        {
+            return _shiftPressed;
+        }
+
+        public void setShiftPressed(bool isShiftPressed)
+        {
+            _shiftPressed = isShiftPressed;
         }
 }

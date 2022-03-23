@@ -42,6 +42,19 @@ public class DrumKeyFeedback : MonoBehaviour
                 case "BackSpace": 
                     parentKeyController.BackspacePressed(); 
                     break;
+                
+                case "Shift":
+                    if (parentKeyController.getShiftPressed())
+                    {
+                        return;
+                    }
+                    parentKeyController.setShiftPressed(true);
+                    parentKeyController.setKeyReset(true);
+                    break;
+                
+                case "Return":
+                    parentKeyController.ReturnPressed();
+                    break;
 
                 default:
                     parentKeyController.KeyPressed(label);
@@ -55,7 +68,15 @@ public class DrumKeyFeedback : MonoBehaviour
             soundHandler.PlayKeyClick();
             
             // Scale box collider up to prevent multiple inputs
-            boxCol.size += new Vector3(0.2f, 10f, 0.2f);
+            
+            if (label != "Shift")
+            {
+                boxCol.size += new Vector3(0.2f, 10f, 0.2f);
+            }
+            else
+            {
+                boxCol.size += new Vector3(0, 10f, 0);
+            }
 
             // Displace on click
             transform.localScale += new Vector3(0.01f, 0, 0.01f);
@@ -66,6 +87,11 @@ public class DrumKeyFeedback : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("KeyboardTrigger") && isPressed)
         {
+            if (label == "Shift")
+            {
+                parentKeyController.setShiftPressed(false);
+            }
+            
             // Scale box collider to match actual mesh again
             boxCol = gameObject.GetComponent<BoxCollider>();
             boxCol.size = originalBoxColSize;
