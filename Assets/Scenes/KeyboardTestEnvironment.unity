@@ -272,6 +272,56 @@ PrefabInstance:
       propertyPath: m_Name
       value: AS Keyboard L
       objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c3795c6afcbb17d43afd847a02f3e445,
+        type: 3}
+      propertyPath: defaultColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c3795c6afcbb17d43afd847a02f3e445,
+        type: 3}
+      propertyPath: defaultColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c3795c6afcbb17d43afd847a02f3e445,
+        type: 3}
+      propertyPath: defaultColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c3795c6afcbb17d43afd847a02f3e445,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c3795c6afcbb17d43afd847a02f3e445,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c3795c6afcbb17d43afd847a02f3e445,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1742157866}
+    - target: {fileID: 5678542932173198766, guid: c3795c6afcbb17d43afd847a02f3e445,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c3795c6afcbb17d43afd847a02f3e445,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InputText
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c3795c6afcbb17d43afd847a02f3e445,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VitrivrVR.Input.Text.SceneTextInputController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c3795c6afcbb17d43afd847a02f3e445,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5820778349334767077, guid: c3795c6afcbb17d43afd847a02f3e445,
         type: 3}
       propertyPath: m_RootOrder
@@ -3106,6 +3156,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AS Keyboard R
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348840534221485168, guid: c21f2a8fc2252de468d8b14f7dd66f3c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c21f2a8fc2252de468d8b14f7dd66f3c,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c21f2a8fc2252de468d8b14f7dd66f3c,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c21f2a8fc2252de468d8b14f7dd66f3c,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1742157866}
+    - target: {fileID: 5678542932173198766, guid: c21f2a8fc2252de468d8b14f7dd66f3c,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c21f2a8fc2252de468d8b14f7dd66f3c,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InputText
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c21f2a8fc2252de468d8b14f7dd66f3c,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VitrivrVR.Input.Text.SceneTextInputController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678542932173198766, guid: c21f2a8fc2252de468d8b14f7dd66f3c,
+        type: 3}
+      propertyPath: onKeyPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5820778349334767077, guid: c21f2a8fc2252de468d8b14f7dd66f3c,
         type: 3}
