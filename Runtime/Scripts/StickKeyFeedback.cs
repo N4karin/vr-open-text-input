@@ -20,50 +20,26 @@ public class StickKeyFeedback : MonoBehaviour
         label = GetComponentInChildren<TextMeshPro>().text;
         parentKeyController = transform.parent.parent.gameObject.GetComponent<AnalogKeyboardController>();
         _renderer = GetComponent<Renderer>();
-        defaultColor = parentKeyController.getDefaultColor();
-        pressedColor = parentKeyController.getPressedColor();
         originalScale = transform.localScale;
     }
 
-    void OnTriggerEnter(Collider collision)
+    public void PressedFeedback()
     {
-        if (collision.gameObject.CompareTag("KeyboardTrigger"))
-        {
-            // Transmit input event to script in parent object
-            switch (label)
-            {
-                case "BackSpace": 
-                    parentKeyController.BackspacePressed(); 
-                    break;
-                
-                case "Return":
-                    parentKeyController.ReturnPressed();
-                    break;
-
-                default:
-                    parentKeyController.KeyPressed(label);
-                    break;
-            }
+        // Change color 
+        //_renderer.material.color = parentKeyController.getPressedColor();
             
-            // Change color 
-            _renderer.material.color = pressedColor;
+        // Play sound
+        soundHandler.PlayKeyClick();
             
-            // Play sound
-            soundHandler.PlayKeyClick();
-            
-            // Displace on click
-            transform.localScale += new Vector3(0.01f, 0, 0.01f);
-        }
+        // Displace on click
+        transform.localScale += new Vector3(0.02f, 0, 0.02f);
     }
     
-    void OnTriggerExit(Collider collision)
+    public void ReleasedFeedback()
     {
-        if (collision.gameObject.CompareTag("KeyboardTrigger"))
-        {
-            _renderer.material.color = defaultColor;
+        //_renderer.material.color = parentKeyController.getDefaultColor();
             
-            // Displace on release
-            transform.localScale = originalScale;
-        }
+        // Displace on release
+        transform.localScale = originalScale;
     }
 }

@@ -276,8 +276,11 @@ MonoBehaviour:
   onReturn:
     m_PersistentCalls:
       m_Calls: []
+  onStickTriggerMovement:
+    m_PersistentCalls:
+      m_Calls: []
   defaultColor: {r: 1, g: 1, b: 1, a: 0}
-  pressedColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0}
+  pressedColor: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 0}
 --- !u!1 &354196495077704138
 GameObject:
   m_ObjectHideFlags: 0

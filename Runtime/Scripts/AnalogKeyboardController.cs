@@ -3,11 +3,17 @@ using UnityEngine;
 using System;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.Events;
+using TMPro;
 using InputDevice = UnityEngine.XR.InputDevice;
 using CommonUsages = UnityEngine.XR.CommonUsages;
 
 public class AnalogKeyboardController : MonoBehaviour
 {
+    [Serializable]
+    public class StickTriggerUpdateEvent : UnityEvent
+    {
+    }
+    
     [Serializable]
     public class TextInputEvent : UnityEvent<string>
     {
@@ -23,39 +29,44 @@ public class AnalogKeyboardController : MonoBehaviour
     {
     }
     
+    public Color defaultColor;
+    public Color pressedColor;
     public bool rightHand = false;
     public bool invertModifierDirection = false;
     public TextInputEvent onKeyPress;
     public TextBackspaceEvent onBackspace;
     public TextReturnEvent onReturn;
-    public Color defaultColor;
-    public Color pressedColor;
+    public StickTriggerUpdateEvent onStickTriggerMovement;
 
     private bool modifiedState = false;
     private bool bothModifiers = false;
     private bool triggerRight = false;
     private bool triggerLeft = false;
     private bool changeFromLastState = false;
-    private Vector2 _stickValue;
+    private bool keyPressed = false;
     private float triggerStateR = 0f;
     private float triggerStateL = 0f;
-    private Transform _marker;
-    private InputDevice controllerR;
-    private InputDevice controllerL;
-    private InputDevice activeController;
-    private Transform baseDefault;
-    private Transform baseL;
-    private Transform baseR;
-    private Transform baseLAndR;
+    private Vector2 _stickValue;
     private Vector3 baseLdefaultPosition;
     private Vector3 baseDefaultPosition;
     private Vector3 baseRdefaultPosition;
     private Vector3 baseLAndRdefaultPosition;
     private Vector3 defaultScale;
+    private Transform _marker;
+    private Transform activeDisk;
+    private Transform lastTriggered;
+    private Transform baseDefault;
+    private Transform baseL;
+    private Transform baseR;
+    private Transform baseLAndR;
+    private InputDevice controllerR;
+    private InputDevice controllerL;
+    private InputDevice activeController;
 
     // Start is called before the first frame update
     void Start()
     {
+        activeDisk = transform.Find("Base");
         _marker = transform.Find("Marker");
         baseDefault = transform.Find("Base");
         baseL = transform.Find("Base L Modifier");
@@ -66,21 +77,17 @@ public class AnalogKeyboardController : MonoBehaviour
         baseDefaultPosition = baseDefault.localPosition;
         baseRdefaultPosition = baseR.localPosition;
         baseLAndRdefaultPosition = baseLAndR.localPosition;
+    
+        // Invokes a function whenever the triggers and sticks are not in default position
+        onStickTriggerMovement.AddListener(UpdateStickAndTriggerPosition);
     }
 
-    // Update is called once per frame
-    void Update()
-    {   
+    void UpdateStickAndTriggerPosition()
+    {
         // Move cursor
-        activeController.TryGetFeatureValue(CommonUsages.primary2DAxis, out _stickValue);
         _marker.transform.position = transform.position + transform.rotation * (new Vector3(_stickValue.x, 0 , _stickValue.y) * transform.localScale.magnitude * 0.13f);
-
-        // Check whether trigger(s) pressed to enable modifiers
-        controllerR.TryGetFeatureValue(CommonUsages.trigger, out triggerStateR);
-        controllerL.TryGetFeatureValue(CommonUsages.trigger, out triggerStateL);
         
-        Debug.Log(triggerStateR);
-
+        // Update trigger state variables
         bool tempL = triggerLeft;
         bool tempR = triggerRight;
 
@@ -105,8 +112,8 @@ public class AnalogKeyboardController : MonoBehaviour
         {
             changeFromLastState = false;
         }
-
-        // Triggers released
+        
+        // Displace disks when triggers released
         if ((!triggerLeft && !triggerRight && changeFromLastState) || (changeFromLastState && !bothModifiers)) 
         {
             modifiedState = false;
@@ -122,10 +129,12 @@ public class AnalogKeyboardController : MonoBehaviour
             baseL.transform.localPosition = baseLdefaultPosition;
             baseR.transform.localPosition = baseRdefaultPosition;
             baseLAndR.transform.localPosition = baseLAndRdefaultPosition;
+            
+            activeDisk = transform.Find("Base");
         }
         
 
-        // Both triggers pressed
+        // Displace disks when both triggers pressed
         if (triggerLeft && triggerRight && changeFromLastState && !bothModifiers)
         {
             bothModifiers = true;
@@ -144,9 +153,11 @@ public class AnalogKeyboardController : MonoBehaviour
             baseL.transform.localPosition += new Vector3(0, 0, -0.46f);
             baseR.transform.localPosition += new Vector3(0, 0, -0.46f);
             baseLAndR.transform.localPosition += new Vector3(0, 0, -0.46f);
+            
+            activeDisk = transform.Find("Base R + L Modifier");
         }
         
-        // Only right trigger pressed
+        // Displace disks when only right trigger pressed
         else if (triggerRight && !modifiedState)
         {
             modifiedState = true;
@@ -159,8 +170,11 @@ public class AnalogKeyboardController : MonoBehaviour
             baseL.transform.localPosition += new Vector3(-0.46f, 0, 0);
             baseR.transform.localPosition += new Vector3(-0.46f, 0, 0);
             baseLAndR.transform.localPosition += new Vector3(-0.46f, 0, 0);
+            
+            activeDisk = transform.Find("Base R Modifier");
         }
-        // Only left trigger pressed
+        
+        // Displace disks when only left trigger pressed
         else if (triggerLeft && !modifiedState)
         {
             modifiedState = true;
@@ -173,6 +187,55 @@ public class AnalogKeyboardController : MonoBehaviour
             baseL.transform.localPosition += new Vector3(0.46f, 0, 0);
             baseR.transform.localPosition += new Vector3(0.46f, 0, 0);
             baseLAndR.transform.localPosition += new Vector3(0.46f, 0, 0);
+            
+            activeDisk = transform.Find("Base L Modifier");
+        }
+        
+        // If stick is more than 50% in one direction, trigger key input based on cursor distance to next button
+        if (_stickValue.magnitude >= 0.5 && !keyPressed)
+        {
+            KeyPressed(GetClosestButtonLabel(activeDisk));
+            keyPressed = true;
+        }
+        else if (_stickValue.magnitude < 0.5 && keyPressed)
+        {
+            lastTriggered.GetComponent<StickKeyFeedback>().ReleasedFeedback();
+            keyPressed = false;
+        }
+    }
+    
+    // modified from https://forum.unity.com/threads/clean-est-way-to-find-nearest-object-of-many-c.44315/
+    String GetClosestButtonLabel(Transform disk)
+    {
+        Transform tMin = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = _marker.transform.position;
+        foreach (Transform t in disk) // Get all children of a Game Object and compare distance to cursor
+        {
+            float dist = Vector3.Distance(t.position, currentPos);
+            if (dist < minDist)
+            {
+                tMin = t;
+                minDist = dist;
+            }
+        }
+
+        lastTriggered = tMin;
+        tMin.GetComponent<StickKeyFeedback>().PressedFeedback();
+        return tMin.GetComponentInChildren<TextMeshPro>().text;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Check whether trigger(s) pressed to enable modifiers
+        controllerR.TryGetFeatureValue(CommonUsages.trigger, out triggerStateR);
+        controllerL.TryGetFeatureValue(CommonUsages.trigger, out triggerStateL);
+        activeController.TryGetFeatureValue(CommonUsages.primary2DAxis, out _stickValue);
+
+        if (triggerStateR > 0 || triggerStateL > 0 || _stickValue.Equals(new Vector2(0f, 0f)))
+        {
+            onStickTriggerMovement.Invoke();
         }
     }
 
