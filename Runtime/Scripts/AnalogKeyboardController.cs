@@ -213,7 +213,7 @@ public class AnalogKeyboardController : MonoBehaviour
         }
         else if (_stickValue.magnitude < 0.5 && keyPressed)
         {
-            lastTriggered.GetComponent<StickKeyFeedback>().ReleasedFeedback();
+            lastTriggered.GetComponent<AnalogKeyboardFeedback>().ReleasedFeedback();
             keyPressed = false;
         }
     }
@@ -235,7 +235,7 @@ public class AnalogKeyboardController : MonoBehaviour
         }
 
         lastTriggered = tMin;
-        tMin.GetComponent<StickKeyFeedback>().PressedFeedback();
+        tMin.GetComponent<AnalogKeyboardFeedback>().PressedFeedback();
         return tMin.GetComponentInChildren<TextMeshPro>().text;
     }
 
