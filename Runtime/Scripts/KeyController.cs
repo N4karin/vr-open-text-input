@@ -37,6 +37,7 @@ public class KeyController : MonoBehaviour
         public TextArrowEvent onLeftArrow;
         public TextArrowEvent onRightArrow;
         public TextTabulatorEvent onTabulator;
+        
 		private bool _shiftPressed;
         private bool _keyReset;
         private bool _capsLock;

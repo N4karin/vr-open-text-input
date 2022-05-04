@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cac8de724f28d4ca9a7f4f946639ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disablesPointer: 1
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
@@ -478,6 +479,9 @@ MonoBehaviour:
       m_Action: Grab
       m_Flags: 0
     m_Flags: 0
+  uiClickAction: {fileID: 0}
+  bindingIndex: 0
+  uiLine: {fileID: 0}
 --- !u!135 &153716430
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -933,6 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cac8de724f28d4ca9a7f4f946639ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disablesPointer: 1
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
@@ -1520,6 +1525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cac8de724f28d4ca9a7f4f946639ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disablesPointer: 1
   onInteraction:
     m_PersistentCalls:
       m_Calls: []
@@ -1624,6 +1630,9 @@ MonoBehaviour:
       m_Action: Grab
       m_Flags: 0
     m_Flags: 0
+  uiClickAction: {fileID: 0}
+  bindingIndex: 0
+  uiLine: {fileID: 0}
 --- !u!135 &949572092
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2714,6 +2723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cac8de724f28d4ca9a7f4f946639ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disablesPointer: 1
   onInteraction:
     m_PersistentCalls:
       m_Calls: []

@@ -194,7 +194,21 @@ public class AnalogKeyboardController : MonoBehaviour
         // If stick is more than 50% in one direction, trigger key input based on cursor distance to next button
         if (_stickValue.magnitude >= 0.5 && !keyPressed)
         {
-            KeyPressed(GetClosestButtonLabel(activeDisk));
+            string input = GetClosestButtonLabel(activeDisk);
+
+            if (input == "Backspace")
+            {
+                BackspacePressed();
+            }
+            else if (input == "Enter")
+            {
+                ReturnPressed();
+            } 
+            else
+            {
+                KeyPressed(input);
+            }
+            
             keyPressed = true;
         }
         else if (_stickValue.magnitude < 0.5 && keyPressed)

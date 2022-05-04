@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class StickKeyFeedback : MonoBehaviour
+public class AnalogKeyboardFeedback : MonoBehaviour
 {
     private string label;
     private bool isPressed;

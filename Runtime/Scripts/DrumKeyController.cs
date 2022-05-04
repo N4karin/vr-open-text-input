@@ -24,6 +24,7 @@ public class DrumKeyController : MonoBehaviour
         public TextInputEvent onKeyPress;
         public TextBackspaceEvent onBackspace;
 		public TextReturnEvent onReturn;
+        
 		private bool _shiftPressed;
         private bool _keyReset;
 
