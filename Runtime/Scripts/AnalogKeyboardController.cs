@@ -206,7 +206,7 @@ public class AnalogKeyboardController : MonoBehaviour
             } 
             else
             {
-                KeyPressed(input);
+                KeyPressed(input.ToLower());
             }
             
             keyPressed = true;

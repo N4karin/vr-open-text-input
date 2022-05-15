@@ -68,6 +68,7 @@ public class TestSceneController : MonoBehaviour
         diff.ForEach(c => Debug.Log(c));
         
         Debug.Log(diff.Count);
+        Debug.Log(rawInput);
         Debug.Log(inputField.text);
         Debug.Log(inputField.text.Length);
         
@@ -92,10 +93,10 @@ public class TestSceneController : MonoBehaviour
         audioSource.PlayOneShot(victorySound);
         
         TMP_Text wpmGameObject = GameObject.Find("WPM").GetComponent<TMP_Text>();
-        wpmGameObject.text = "Words per Minute\n" + Math.Round(wpm / N);
+        wpmGameObject.text = "Words per Minute\n" + (wpm / N);
         
         TMP_Text errorGameObject = GameObject.Find("Error Rate").GetComponent<TMP_Text>();
-        errorGameObject.text = "Error Rate\n" + Math.Round(error / N);
+        errorGameObject.text = "Error Rate\n" + (error / N);
         
     }
 
