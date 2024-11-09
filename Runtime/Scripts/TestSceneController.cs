@@ -13,6 +13,7 @@ public class TestSceneController : MonoBehaviour
     public TMP_Text phraseObject;
     public AudioClip correctPhrase;
     public AudioClip victorySound;
+    public GameObject buttons;
     public int N; // Amount of phrases in the experiment
     
     private AudioSource audioSource;
@@ -115,7 +116,7 @@ public class TestSceneController : MonoBehaviour
         
         // Hide results
         statsGameObject.SetActive(false);
-        
+
         SetRandomPhrase();
     }
 

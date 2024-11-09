@@ -247,10 +247,12 @@ public class AnalogKeyboardController : MonoBehaviour
         controllerL.TryGetFeatureValue(CommonUsages.trigger, out triggerStateL);
         activeController.TryGetFeatureValue(CommonUsages.primary2DAxis, out _stickValue);
 
-        if (triggerStateR > 0 || triggerStateL > 0 || _stickValue.Equals(new Vector2(0f, 0f)))
-        {
-            onStickTriggerMovement.Invoke();
-        }
+        // if (triggerStateR > 0 || triggerStateL > 0 || !_stickValue.Equals(new Vector2(0f, 0f)))
+        // {
+        //     onStickTriggerMovement.Invoke();
+        // }
+        
+        onStickTriggerMovement.Invoke();
     }
 
     private void FixedUpdate()
