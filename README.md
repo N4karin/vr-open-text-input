@@ -26,7 +26,7 @@ In the Unity editor, go to "Window" -> "Package Manager" -> "+" -> "Import Packa
 
 The functionality of the keyboards can be tested beforehand in a provided scene called "KeyboardTestEnvironment" in Assets/Scenes.
 
-# Set up
+# Setup
 - Insert desired keyboard from Assets/Prefabs to scene
 - For *Virtual Keyboard* and *Drumstick Keyboard*
 	- Attach a collider ('Is Trigger' deactivated) to any game object and tag the game object as "KeyboardTrigger" (For Example a game object representing hands or fingers or for the Drumstick Keyboard, the supplied drumstick assets)
